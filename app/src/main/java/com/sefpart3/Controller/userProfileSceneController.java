@@ -124,6 +124,7 @@ public class userProfileSceneController implements Initializable{
                             
                             while(!setupcomplete){
                                 TextInputDialog setupDialog = new TextInputDialog();
+                                setupDialog.setHeaderText("Please input your code below");
                                 
                                 Button cancel = (Button) setupDialog.getDialogPane().lookupButton(ButtonType.CANCEL);
                                 cancel.addEventFilter(ActionEvent.ACTION, event ->{
@@ -140,9 +141,10 @@ public class userProfileSceneController implements Initializable{
                                             //accessToken that need to be store in User Object
                                             accessToken = twitter.getOAuthAccessToken(requestToken, setupDialog.getEditor().getText());
                                             //gettoken and getttokensecret to store into csv
-                                            
+                                            user.setTwitter(accessToken.getToken(), accessToken.getTokenSecret());
+                                            Session.getInstance().editPerformed("User");
                                             setupcomplete = true;
-
+                                            stage.close();
 
                                         }catch(TwitterException e){
                                             e.printStackTrace();
@@ -197,18 +199,19 @@ public class userProfileSceneController implements Initializable{
         }
     });
 
-        if (accessToken!=null){
-            twitterButton.setDisable(true);
-        }
-
         user = Session.getInstance().getUser();
 
         userDob.setDisable(true);
-        userName.setText(user.getName());  
+        userName.setText(user.getName());
         userDob.setValue(LocalDate.parse(user.getDOB(), DateTimeFormatter.ofPattern("dd/MM/yyy")));
         userEmail.setText(user.getEmail());
         userAddress.setText(user.getAddress());
         userContactNumber.setText(user.getPhoneNo());
+
+        
+        if (user.getTwitter() != null){
+            twitterButton.setDisable(true);
+        }
       
     }
 
