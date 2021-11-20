@@ -2,9 +2,6 @@ package com.sefpart3.Controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
-
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
 
@@ -23,9 +20,7 @@ import com.sefpart3.Model.Counsellor;
 import com.sefpart3.Model.Session;
 import javafx.scene.Node;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import javafx.util.Callback;
-import javafx.scene.control.DateCell;
+
 public class RequestCounsellingController {
 
     ObservableList<String> HourList = FXCollections.observableArrayList("00", "01", "02","03","04","05","06","07","08","09",
@@ -55,24 +50,6 @@ public class RequestCounsellingController {
 
     @FXML
     private void initialize() {
-        date.setValue(LocalDate.now());
-        final Callback<DatePicker, DateCell> dayCellFactory = 
-            new Callback<DatePicker, DateCell>() {
-                @Override
-                public DateCell call(final DatePicker datePicker) {
-                    return new DateCell() {
-                        @Override
-                        public void updateItem(LocalDate item, boolean empty) {
-                            super.updateItem(item, empty);
-                            if (item.isBefore(date.getValue())) {
-                                    setDisable(true);
-                                    setStyle("-fx-background-color: #ffc0cb;");
-                            }
-                        }
-                };
-            }
-        };
-        date.setDayCellFactory(dayCellFactory);
         time_hour.setValue("00");
         time_hour.setItems(HourList);
         time_minute.setValue("00");
@@ -86,10 +63,9 @@ public class RequestCounsellingController {
 
     @FXML
     void switchToHomepage(ActionEvent event) throws IOException{
-        LocalDate currentDate = date.getValue();
-        
+        LocalDate selectedDate = date.getValue();
         DateTimeFormatter dft = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        dft.format(currentDate);
+        dft.format(selectedDate);
 
         String time = time_hour.getValue().toString() + ":" + time_minute.getValue().toString();
 

@@ -2,13 +2,9 @@ package com.sefpart3.Controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Alert.AlertType;
 import javafx.collections.*;
 import java.net.URI;
-import java.net.URISyntaxException;
-
 import com.sefpart3.Model.Session;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -42,14 +38,9 @@ public class messageSendController {
         String phone_number = Session.getInstance().getUser().getGuardian().getPhoneNo();
         String apiKey = Session.getInstance().getUser().getGuardian().getWA_Key();
         String msg = formatMessage(messageList.getValue().toString());
-        String url = "https://api.callmebot.com/whatsapp.php?phone=" + phone_number + "&text=" + msg + "&apikey=" + apiKey;
 
-        try{
-            open(url);
-        }catch(URISyntaxException e){
-            whatsAppAlert();
-        }
-        
+        String url = "https://api.callmebot.com/whatsapp.php?phone=" + phone_number + "&text=" + msg + "&apikey=" + apiKey;
+        open(url);
 
         //Twitter
         
@@ -75,22 +66,6 @@ public class messageSendController {
     public static void open(String url) throws Exception{
         URI link = new URI(url);
         java.awt.Desktop.getDesktop().browse(link);
-    }
-
-    private void whatsAppAlert() throws Exception {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("WhatsApp API key needed");
-        alert.setHeaderText("IMPORTANT: Message failed");
-        alert.setContentText("You haven't set up guardian WhatsApp key!!");
-        alert.showAndWait();
-    }
-
-    private void twitterAlert() throws Exception {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Authentication alert");
-        alert.setHeaderText("IMPORTANT");
-        alert.setContentText("Please connect your Twitter account in profile!");
-        alert.showAndWait();
     }
 
     private void loadFXML(String fxmlPath,ActionEvent event) throws IOException {
