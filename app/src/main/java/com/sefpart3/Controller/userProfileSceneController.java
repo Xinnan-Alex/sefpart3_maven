@@ -67,11 +67,9 @@ public class userProfileSceneController implements Initializable{
 
     public void editProfileHandler(ActionEvent event) throws IOException{
         
-        Button temp;
-        temp = (Button)event.getSource();
 
-        if(temp.getText().equals("Edit Profile")){
-            temp.setText("Save");
+        if(editProfileButton.getText().equals("Edit Profile")){
+            editProfileButton.setText("Save");
             userName.setEditable(true);
             userDob.setDisable(false);
             userEmail.setEditable(true);
@@ -79,7 +77,7 @@ public class userProfileSceneController implements Initializable{
             userContactNumber.setEditable(true);
         }
         else{
-            temp.setText("Edit Profile");
+            editProfileButton.setText("Edit Profile");
             userName.setEditable(false);
             userDob.setDisable(true);
             userEmail.setEditable(false);
@@ -202,8 +200,16 @@ public class userProfileSceneController implements Initializable{
         user = Session.getInstance().getUser();
 
         userDob.setDisable(true);
-        userName.setText(user.getName());
-        userDob.setValue(LocalDate.parse(user.getDOB(), DateTimeFormatter.ofPattern("dd/MM/yyy")));
+        userName.setText(user.getName()); 
+
+        if(user.getDOB().equals("null") ){
+ 
+            userDob.setValue(LocalDate.parse("2018-11-01"));
+
+        }else{
+            userDob.setValue(LocalDate.parse(user.getDOB(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+        
         userEmail.setText(user.getEmail());
         userAddress.setText(user.getAddress());
         userContactNumber.setText(user.getPhoneNo());
