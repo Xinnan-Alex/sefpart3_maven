@@ -1,49 +1,27 @@
 package com.sefpart3.Controller;
 
-import java.io.BufferedReader;
 //JAVA IMPORTS
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
-import javax.accessibility.AccessibleSelection;
 
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.gson.GsonFactory;
-
-import org.apache.http.util.Args;
 import org.json.JSONException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
 
-import com.sefpart3.Model.OAuthAuthenticator;
-import com.sefpart3.Model.OAuthCompletedCallback;
-import com.sefpart3.Model.OAuthTwitterAuthenticator;
 import com.sefpart3.Model.Session;
 import com.sefpart3.Model.TwitterAPI;
 import com.sefpart3.Model.User;
 
-import javafx.application.Platform;
 import javafx.concurrent.Worker.State;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.DialogEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.web.WebEngine;
@@ -52,21 +30,11 @@ import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import javafx.scene.Scene;
-import twitter4j.Status;
-import twitter4j.StatusUpdate;
+
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
-import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
-
-import twitter4j.TwitterRuntimeException;
-import kotlin.jvm.internal.Intrinsics;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 
 public class userProfileSceneController implements Initializable{
@@ -133,12 +101,7 @@ public class userProfileSceneController implements Initializable{
 
     public void twitterButtonHandler() throws JSONException, TwitterException{
         
-        String filepath =  "../Resources/twitterSecret.json";
-        InputStream is = userProfileSceneController.class.getResourceAsStream(filepath);
-        BufferedReader in = new BufferedReader(new InputStreamReader(is));
-        JSONTokener tokener = new JSONTokener(in);
-        JSONObject twitterSecret = new JSONObject(tokener);
-        twitter = new TwitterAPI(twitterSecret.getString("apikey"), twitterSecret.getString("apisecret")).getTwitterInstance();
+        twitter = TwitterAPI.getTwitterInstance();
         
         // twitter.setOAuthConsumer(twitterSecret.getString("apikey"), twitterSecret.getString("apisecret"));
         requestToken = twitter.getOAuthRequestToken();

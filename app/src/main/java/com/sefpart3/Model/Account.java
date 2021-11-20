@@ -2,8 +2,6 @@ package com.sefpart3.Model;
 
 import java.util.List;
 
-import io.opencensus.stats.View.Name;
-
 public abstract class Account {
     private String email;
     private String password;

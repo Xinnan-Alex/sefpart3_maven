@@ -12,9 +12,7 @@ import java.util.regex.Pattern;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
 import com.google.api.client.json.JsonFactory;
 import com.google.api.client.json.gson.GsonFactory;
-import com.google.api.services.gmail.Gmail;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.sefpart3.Model.GmailAPI;

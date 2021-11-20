@@ -1,9 +1,7 @@
 package com.sefpart3.Model;
 
-import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.web.WebEngine;
-import javafx.scene.web.WebEvent;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 
@@ -18,9 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-/**
- * Created by max on 13/07/2017.
- */
+
 public abstract class OAuthAuthenticator {
 
     private JSONObject accessedJsonData;
@@ -141,12 +137,6 @@ public abstract class OAuthAuthenticator {
 
     private void closeStage() {
         stage.close();
-    }
-
-    private void notifyLoginViewCompleted() {
-        if(gotData) {
-            //LoginView.getInstance().completedOAuthLogin(this);
-        }
     }
 
     private String doGetAccountInfo(String accessToken) {

@@ -4,14 +4,12 @@ package com.sefpart3;
 
 import java.io.IOException;
 
-import com.sefpart3.Model.Database;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
-import java.util.*;
 
 public class test extends Application{
 

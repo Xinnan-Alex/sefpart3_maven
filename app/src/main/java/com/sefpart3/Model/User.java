@@ -1,6 +1,5 @@
 package com.sefpart3.Model;
 
-import java.time.LocalDate;
 import java.util.*;
 
 import twitter4j.auth.AccessToken;

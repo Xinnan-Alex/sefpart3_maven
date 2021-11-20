@@ -2,7 +2,6 @@ package com.sefpart3;
 
 import java.io.IOException;
 
-import com.sefpart3.Model.TwitterAPI;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +9,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import twitter4j.auth.AccessToken;
 import javafx.scene.Parent;
 
 public class App extends Application{
