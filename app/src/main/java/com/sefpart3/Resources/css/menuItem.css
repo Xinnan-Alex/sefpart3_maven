@@ -1,0 +1,8 @@
+.menu-item {
+    -fx-opacity:1.0;
+}
+
+.menu-item:focused {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+}
