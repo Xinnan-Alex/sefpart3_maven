@@ -1,5 +1,6 @@
 package com.sefpart3.Model;
 
+import java.time.LocalDate;
 import java.util.*;
 
 import twitter4j.auth.AccessToken;
@@ -28,7 +29,7 @@ public class User extends Account{
     public void setAddress(String address){ this.address = address; }
 
     public String getDOB(){ return DOB; }
-    public void setDOB(String DOB){ this.DOB = DOB; }
+    public void setDOB(String string){ this.DOB = string; }
 
     public String getPhoneNo(){ return phoneNo; }
     public void setPhoneNo(String phoneNo){ this.phoneNo = phoneNo; }

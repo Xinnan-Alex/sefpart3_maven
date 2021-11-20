@@ -12,9 +12,11 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import twitter4j.JSONObject;
 import twitter4j.JSONTokener;
+import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.auth.AccessToken;
 
 public class TwitterAPI {

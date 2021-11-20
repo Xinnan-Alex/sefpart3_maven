@@ -32,9 +32,9 @@
             </ImageView>
          </graphic>
       </Button>
-      <TextField layoutX="120.0" layoutY="190.0" prefHeight="26.0" prefWidth="184.0" />
-      <TextField layoutX="120.0" layoutY="340.0" prefHeight="26.0" prefWidth="184.0" />
-      <TextField layoutX="120.0" layoutY="290.0" prefHeight="26.0" prefWidth="184.0" />
+      <TextField fx:id="userName" layoutX="120.0" layoutY="190.0" prefHeight="26.0" prefWidth="184.0" />
+      <TextField fx:id="userAddress" layoutX="120.0" layoutY="340.0" prefHeight="26.0" prefWidth="184.0" />
+      <TextField fx:id="userEmail" layoutX="120.0" layoutY="290.0" prefHeight="26.0" prefWidth="184.0" />
       <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="190.0" prefHeight="25.0" prefWidth="100.0" text="Full Name">
          <font>
             <Font name="Josefin Sans Bold" size="12.0" />
@@ -51,25 +51,21 @@
          <font>
             <Font name="Josefin Sans Bold" size="12.0" />
          </font></Label>
-      <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="390.0" prefHeight="25.0" prefWidth="100.0" text="Password">
+      <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="398.0" prefHeight="25.0" prefWidth="100.0" text="Contact number">
          <font>
             <Font name="Josefin Sans Bold" size="12.0" />
          </font></Label>
-      <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="440.0" prefHeight="25.0" prefWidth="100.0" text="Contact number">
-         <font>
-            <Font name="Josefin Sans Bold" size="12.0" />
-         </font></Label>
-      <TextField layoutX="120.0" layoutY="390.0" prefHeight="26.0" prefWidth="184.0" />
-      <DatePicker layoutX="120.0" layoutY="240.0" />
-      <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="490.0" prefHeight="25.0" prefWidth="100.0" text="Twitter">
+      <DatePicker fx:id="userDob" editable="false" layoutX="120.0" layoutY="240.0" stylesheets="@../Resources/css/datePicker.css" />
+      <Label alignment="TOP_RIGHT" layoutX="10.0" layoutY="466.0" prefHeight="25.0" prefWidth="100.0" text="Twitter">
          <font>
             <Font name="Josefin Sans Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="120.0" layoutY="440.0" prefHeight="26.0" prefWidth="184.0" />
-      <Button fx:id="twitterButton" layoutX="120.0" layoutY="490.0" mnemonicParsing="false" onAction="#twitterButtonHandler" prefHeight="25.0" prefWidth="137.0" text="Connect to Twitter">
+      <TextField fx:id="userContactNumber" layoutX="120.0" layoutY="398.0" prefHeight="26.0" prefWidth="184.0" />
+      <Button fx:id="twitterButton" layoutX="145.0" layoutY="466.0" mnemonicParsing="false" onAction="#twitterButtonHandler" prefHeight="25.0" prefWidth="137.0" text="Connect to Twitter">
          <font>
             <Font name="Josefin Sans Bold" size="12.0" />
          </font></Button>
+      <Button fx:id="editProfileButton" layoutX="152.0" layoutY="540.0" mnemonicParsing="false" onAction="#editProfileHandler" text="Edit Profile" />
    </children>
 </AnchorPane>
