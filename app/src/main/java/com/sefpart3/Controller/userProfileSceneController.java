@@ -124,8 +124,9 @@ public class userProfileSceneController implements Initializable{
                                         try{
                                             //accessToken that need to be store in User Object
                                             accessToken = twitter.getOAuthAccessToken(requestToken, setupDialog.getEditor().getText());
+                                            //gettoken and getttokensecret to store into csv
                                             System.out.println(accessToken.getToken());
-                                            System.out.println(twitter.getConfiguration().getOAuthConsumerKey());
+                                            System.out.println(accessToken.getTokenSecret());
                                             setupcomplete = true;
 
                                         }catch(TwitterException e){
