@@ -158,6 +158,9 @@ public class loginSceneController implements Initializable,OAuthCompletedCallbac
 
     public void forgotPasswordhHyperlinkHandler(){
         
+        
+
+
     }
 
     @Override
