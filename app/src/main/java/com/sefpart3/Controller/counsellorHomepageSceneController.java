@@ -11,11 +11,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
+import com.sefpart3.Model.Session;
 
 public class counsellorHomepageSceneController {
 
     @FXML
-    private Button counsellorProfileBtn, counsellorManageCounsellingSessionBtn, counsellorJoinMeetingBtn, logoutButton ;
+    private Button counsellorProfileBtn, counsellorManageCounsellingSessionBtn, logoutButton ;
 
     public void counsellorProfileBtnHandler() throws IOException {
 
@@ -40,25 +41,13 @@ public class counsellorHomepageSceneController {
         Stage window = (Stage)counsellorManageCounsellingSessionBtn.getScene().getWindow();
         window.setScene(new Scene(root)); 
     }
-    
-    public void counsellorJoinMeetingBtnHandler() throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/ManageCounsellingScene.fxml"));
-        Parent root = fxmlLoader.load();
-        
-        //userProfileSceneController controller = fxmlLoader.getController();
-        //controller.initUserObejct(loggedinPerson);
-        
-        Stage window = (Stage)counsellorJoinMeetingBtn.getScene().getWindow();
-        window.setScene(new Scene(root)); 
-    }
-    
 
     public void logoutButtonHandler() throws IOException{
         Alert confirmation_Alert = new Alert(AlertType.CONFIRMATION,"Do you wish to logout?",ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
         confirmation_Alert.showAndWait();
 
         if (confirmation_Alert.getResult() == ButtonType.YES){
+            Session.getInstance().setLoginStatus(false);
             Parent root = FXMLLoader.load(getClass().getResource("../View/loginScene.fxml"));
             Stage stage = (Stage) logoutButton.getScene().getWindow();
             stage.setScene(new Scene(root));
