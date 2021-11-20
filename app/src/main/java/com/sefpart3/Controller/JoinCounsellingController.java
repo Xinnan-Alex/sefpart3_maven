@@ -55,9 +55,9 @@ public class JoinCounsellingController {
     @FXML
     void switchToHomepage(ActionEvent event) throws IOException{
         if(role.equals("User"))
-            loadFXML("/View/userHomepageScene.fxml", event);
+            loadFXML("../View/userHomepageScene.fxml", event);
         else
-            loadFXML("/View/ManageCounsellingScene.fxml", event);
+            loadFXML("../View/ManageCounsellingScene.fxml", event);
     }
 
     @FXML
@@ -72,7 +72,7 @@ public class JoinCounsellingController {
         if(cs.getJoined("User") && cs.getJoined("Counsellor")) // if both user and counsellor has joined the google meet, 
             Session.getInstance().removeCounsellingSessions(cs); // this counselling session will be removed
 
-        loadFXML("/View/userHomepageScene.fxml", event);
+        loadFXML("../View/userHomepageScene.fxml", event);
     }
 
     @FXML
@@ -81,12 +81,12 @@ public class JoinCounsellingController {
         FXMLLoader loader;
 
         if(role.equals("User")){ // login as user, check counsellor's profile
-            loader = new FXMLLoader(getClass().getResource("/View/counsellorProfileScene.fxml"));
+            loader = new FXMLLoader(getClass().getResource("../View/counsellorProfileScene.fxml"));
             root = loader.load();
             counsellorProfileSceneController cpsc = loader.getController();
         }
         else{ // login as counsellor, check user's profile
-            loader = new FXMLLoader(getClass().getResource("/View/userProfileScene.fxml"));
+            loader = new FXMLLoader(getClass().getResource("../View/userProfileScene.fxml"));
             root = loader.load();
             userProfileSceneController upsc = loader.getController();
         }
@@ -101,7 +101,7 @@ public class JoinCounsellingController {
     public void cancelSession(ActionEvent event)throws IOException{
         Session.getInstance().removeCounsellingSessions(cs);
 
-        loadFXML("/View/userHomepageScene.fxml", event);
+        loadFXML("../View/userHomepageScene.fxml", event);
     }
 
     public void setCSession(CounsellingSession cs){

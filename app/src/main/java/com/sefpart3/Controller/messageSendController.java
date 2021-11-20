@@ -55,12 +55,12 @@ public class messageSendController {
 
     @FXML
     void switchToMessage(ActionEvent event) throws IOException{
-        loadFXML("/View/messageView.fxml",event);
+        loadFXML("../View/messageView.fxml",event);
     }
 
     @FXML
     void switchToHomePage(ActionEvent event) throws IOException{
-        loadFXML("/View/userHomepageScene.fxml", event);
+        loadFXML("../View/userHomepageScene.fxml", event);
     }
 
     public static void open(String url) throws Exception{

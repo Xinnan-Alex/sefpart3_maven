@@ -42,7 +42,7 @@ public class CounsellorListController {
     void switchToBook(ActionEvent event) throws IOException{
         Button temp = (Button)event.getSource();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/RequestCounsellingScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/RequestCounsellingScene.fxml"));
         root = loader.load();
 
         RequestCounsellingController rcc = loader.getController();
@@ -62,7 +62,7 @@ public class CounsellorListController {
 
     @FXML
     void switchToHomepage(ActionEvent event) throws IOException{
-        loadFXML("/View/userHomepageScene.fxml", event);
+        loadFXML("../View/userHomepageScene.fxml", event);
     }
 
     @FXML
@@ -70,7 +70,7 @@ public class CounsellorListController {
         /*
         Button temp = (Button)event.getSource();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/counsellorProfileScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/counsellorProfileScene.fxml"));
         root = loader.load();
 
         counsellorProfileSceneController cpsc = loader.getController();

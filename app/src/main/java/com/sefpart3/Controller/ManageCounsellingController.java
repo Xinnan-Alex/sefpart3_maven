@@ -47,14 +47,14 @@ public class ManageCounsellingController {
 
     @FXML
     void switchToHomepage(ActionEvent event) throws IOException{
-        loadFXML("/View/counsellorHomepageScene.fxml", event);
+        loadFXML("../View/counsellorHomepageScene.fxml", event);
     }
 
     @FXML
     void switchToJoin(ActionEvent event) throws IOException{
         Button temp = (Button)event.getSource();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/JoinCounsellingScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/JoinCounsellingScene.fxml"));
         root = loader.load();
 
         JoinCounsellingController jcc = loader.getController();

@@ -92,7 +92,7 @@ public class messageController {
 
     @FXML
     void switchToHomePage(ActionEvent event) throws IOException {
-        loadFXML("/View/messageSendView.fxml", event);
+        loadFXML("../View/messageSendView.fxml", event);
     }
 
     private void loadFXML(String fxmlPath,ActionEvent event) throws IOException {
