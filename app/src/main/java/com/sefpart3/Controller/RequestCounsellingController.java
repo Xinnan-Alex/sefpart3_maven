@@ -95,7 +95,7 @@ public class RequestCounsellingController {
 
         String link = "https://meet.google.com/new";
 
-        CounsellingSession cs = new CounsellingSession(Session.getInstance().getUser() , counsellor, selectedDate.toString() , reason.getText(), time, link);
+        CounsellingSession cs = new CounsellingSession(Session.getInstance().getUser() , counsellor, currentDate.toString() , reason.getText(), time, link);
         cs.write();
         Session.getInstance().addCSession(cs);
         loadFXML("../View/userHomepageScene.fxml", event);
