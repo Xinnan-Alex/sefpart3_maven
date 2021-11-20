@@ -39,6 +39,7 @@ public class Session {
             List<String> guardian;
             List<String> messages;
             List<String> reminder;
+            List<String> twitter;
             //String twitter;
             String address;
 
@@ -51,6 +52,7 @@ public class Session {
             guardian = Database.parseArray(userDB.get(i).get(6));
             messages = Database.parseArray(userDB.get(i).get(7));
             reminder = Database.parseArray(userDB.get(i).get(8));
+            twitter  = Database.parseArray(userDB.get(i).get(9));
             
 
             users.add(new User(email, password, name, phoneNo));
@@ -66,6 +68,7 @@ public class Session {
                 users.get(i).getReminder().setSchedule(reminder.get(0), reminder.get(1), reminder.get(2));
                 users.get(i).getReminder().setLink(reminder.get(3));
             }
+            users.get(i).setTwitter(twitter.get(0), twitter.get(1));
         }
         System.out.println("Total no. of User: " + users.size());
 
