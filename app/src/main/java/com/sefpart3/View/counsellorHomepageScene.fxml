@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="330.0" styleClass="anchor" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.counsellorHomepageSceneController">
+   <stylesheets>
+      <URL value="@../Resources/css/background.css" />
+      <URL value="@../Resources/css/button.css" />
+      <URL value="@../Resources/css/text.css" />
+   </stylesheets>
+   <children>
+      <Label layoutX="122.0" layoutY="125.0" text="HELLO">
+         <font>
+            <Font name="Josefin Sans Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="62.0" layoutY="168.0" text="WELCOME BACK">
+         <font>
+            <Font name="Josefin Sans Bold" size="24.0" />
+         </font>
+      </Label>
+      <Button fx:id="counsellorProfileBtn" layoutX="257.0" layoutY="21.0" mnemonicParsing="false" onAction="#counsellorProfileBtnHandler" prefHeight="30.0" prefWidth="27.0" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="55.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/images/profile.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="counsellorManageCounsellingSessionBtn" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" onAction="#counsellorManageCounsellingSessionBtnHandler" prefHeight="61.0" prefWidth="171.0" text="Manage Couselling Session" />
+      <Button fx:id="counsellorJoinMeetingBtn" layoutX="80.0" layoutY="359.0" mnemonicParsing="false" onAction="#counsellorJoinMeetingBtnHandler" prefHeight="48.0" prefWidth="171.0" text="Join Metting " />
+      <Button fx:id="logoutButton" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onAction="#logoutButtonHandler" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Resources/images/back_64px.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
