@@ -57,7 +57,7 @@ public class JoinCounsellingController {
         if(role.equals("User"))
             loadFXML("/View/userHomepageScene.fxml", event);
         else
-            loadFXML("/View/counsellorHomepageScene.fxml", event);
+            loadFXML("/View/ManageCounsellingScene.fxml", event);
     }
 
     @FXML
