@@ -24,7 +24,7 @@ public abstract class Account {
     public String getRole(){ return role; }
 
     public abstract void write(boolean exist);
-    public abstract List<String> toList();
+    public abstract List<String> toList(); // for converting object into List<String> for storing into database
 
 
 }
