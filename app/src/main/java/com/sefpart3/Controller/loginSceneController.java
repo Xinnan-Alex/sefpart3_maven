@@ -156,9 +156,13 @@ public class loginSceneController implements Initializable,OAuthCompletedCallbac
 
     }
 
-    public void forgotPasswordhHyperlinkHandler(){
+    public void forgotPasswordhHyperlinkHandler() throws IOException{
         
-        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/forgotPasswordScene.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) signupHyperlink.getScene().getWindow();
+        stage.setScene(new Scene(root));
 
 
     }

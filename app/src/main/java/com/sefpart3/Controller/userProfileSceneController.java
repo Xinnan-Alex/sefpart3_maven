@@ -93,7 +93,7 @@ public class userProfileSceneController implements Initializable{
             //     user.setPhoneNo(userContactNumber.getText());
             // }
             
-            Session.getInstance().editPerformed("User");;
+            Session.getInstance().editPerformed("User");
         }
     }
 

@@ -58,17 +58,20 @@ public class forgotpasswordSceneController implements Initializable{
             new Alert(AlertType.ERROR,"Invalid email format, please try again").show();
             emailValid = false;
         }else{
+            int i = 0;
             for(User u:users){
                 if (u.getEmail().equals(email)){
                     emailValid = true;
                     break;
                 }
                 else{
-                    new Alert(AlertType.ERROR,"Email is not registerred, please try again").show();
                     emailValid = false;
+                    i++;
+                    if( i == users.size()){
+                        new Alert(AlertType.ERROR,"Email is not registerred, please try again").show();
+                    }
                 }
             }
-            ;
         }
 
         return emailValid;
@@ -108,14 +111,25 @@ public class forgotpasswordSceneController implements Initializable{
                     dialog.showAndWait();
                     String input_verificationcode = dialog.getEditor().getText();
                     if(input_verificationcode.equals(verificationCode)){
+                        new Alert(AlertType.INFORMATION,"Valid verification code, proceeding to changing password process!").showAndWait();
                         //create user object with valid information and write into csv file
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/forgotpasswordScene2.fxml"));
                         Parent root = loader.load();
                         Stage stage = (Stage) confirmEmailButton.getScene().getWindow();
+
+                        forgotpasswordSceneController2 controller = loader.getController();
+                        for (User u:Session.getInstance().getUsers()){
+                            if (u.getEmail().equals(email)){
+                                controller.initialiseUser(u);
+                                break;
+                            }
+                        }
+
                         stage.setScene(new Scene(root));
+                        break;
 
                     }else{
-                        new Alert(AlertType.ERROR,"Invalid verification code, please try again").show();
+                        new Alert(AlertType.ERROR,"Invalid verification code, please try again").showAndWait();
                     }
 
                 }
@@ -130,5 +144,5 @@ public class forgotpasswordSceneController implements Initializable{
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.setScene(new Scene(root));
     }
-    
+
 }

@@ -23,13 +23,15 @@ public class forgotpasswordSceneController2 {
     @FXML
     Button changepasswordButton,backButton;
 
-    private User user = Session.getInstance().getUser();
+    private User user;
 
     public void changepasswordButtonHandler() throws IOException{
+
 
         if(user.getPassword().equals(oldpasswordField.getText())){
             changepasword(newpasswordField.getText());
             backButtonHandler();
+            new Alert(AlertType.INFORMATION,"Password changed successfully!").showAndWait();
         }else{
             new Alert(AlertType.ERROR,"Invalid old password, please try again!").showAndWait();
         }
@@ -37,7 +39,7 @@ public class forgotpasswordSceneController2 {
 
     public void changepasword(String password){
         user.setPassword(password);
-        user.write(false);
+        Session.getInstance().editPerformed("User");
     }
 
     public void backButtonHandler() throws IOException{
@@ -46,6 +48,10 @@ public class forgotpasswordSceneController2 {
 
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.setScene(new Scene(root));
+    }
+
+    public void initialiseUser(User u){
+        user = u;
     }
     
 }

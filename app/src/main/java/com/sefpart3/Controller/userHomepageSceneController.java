@@ -138,6 +138,7 @@ public class userHomepageSceneController implements Initializable{
         confirmation_Alert.showAndWait();
 
         if (confirmation_Alert.getResult() == ButtonType.YES){
+        
             Session.getInstance().setLoginStatus(false);
             Parent root = FXMLLoader.load(getClass().getResource("../View/loginScene.fxml"));
             Stage stage = (Stage) logoutButton.getScene().getWindow();

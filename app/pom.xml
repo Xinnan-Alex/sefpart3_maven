@@ -71,10 +71,10 @@
       <version>17.0.1</version>
     </dependency> 
     <dependency>
-      <groupId>javax.mail</groupId>
-      <artifactId>javax.mail-api</artifactId>
+      <groupId>com.sun.mail</groupId>
+      <artifactId>javax.mail</artifactId>
       <version>1.6.2</version>
-    </dependency>
+  </dependency>
     <dependency>
       <groupId>com.squareup.okhttp3</groupId>
       <artifactId>okhttp</artifactId>
