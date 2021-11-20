@@ -44,7 +44,7 @@
 <?import javafx.scene.text.Font?>
 <?import java.util.ArrayList?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="330.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ManageCounsellingController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="330.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sefpart3.Controller.ManageCounsellingController">
    <children>
       <Button layoutY="14.0" mnemonicParsing="false" onAction="#switchToHomepage" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: transparent;" stylesheets="@../Resources/css/button.css">
          <graphic>

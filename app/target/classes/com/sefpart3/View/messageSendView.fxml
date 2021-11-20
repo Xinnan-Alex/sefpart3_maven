@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="330.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.messageSendController">
+<AnchorPane prefHeight="600.0" prefWidth="330.0" style="-fx-background-color: #6495ED;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sefpart3.Controller.messageSendController">
    <children>
       <Button layoutX="10.0" layoutY="15.0" minWidth="36.0" mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="32.0" prefWidth="36.0" style="-fx-background-color: transparent;">
          <graphic>

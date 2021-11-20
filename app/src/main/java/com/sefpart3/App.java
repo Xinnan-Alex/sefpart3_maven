@@ -16,13 +16,12 @@ public class App extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        root = FXMLLoader.load(getClass().getResource("/View/loginScene.fxml"));
-
+        root = FXMLLoader.load(getClass().getResource("View/loginScene.fxml"));
         scene = new Scene(root);
 
         primaryStage.setScene(scene);
 
-        Image stageicon = new Image("/Resources/images/iamfine.png");
+        Image stageicon = new Image("Resources/images/iamfine.png");
 
          //adding icon to the window
         primaryStage.getIcons().add(stageicon);

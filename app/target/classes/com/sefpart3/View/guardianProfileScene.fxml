@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="330.0" style="-fx-background-color: #008B8B;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.guardianProfileSceneController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="330.0" style="-fx-background-color: #008B8B;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sefpart3.Controller.guardianProfileSceneController">
    <children>
       <AnchorPane layoutY="218.0" prefHeight="394.0" prefWidth="330.0" style="-fx-background-color: #E0FFFF; -fx-background-radius: 20;" stylesheets="@../Resources/css/textfield_light.css">
          <children>
