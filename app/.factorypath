@@ -44,5 +44,9 @@
     <factorypathentry kind="VARJAR" id="M2_REPO/org/twitter4j/twitter4j-core/4.0.7/twitter4j-core-4.0.7.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/org/twitter4j/twitter4j-appengine/4.0.7/twitter4j-appengine-4.0.7.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/google/appengine/appengine-api-1.0-sdk/1.8.7/appengine-api-1.0-sdk-1.8.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/twitter4j/twitter4j-examples/4.0.7/twitter4j-examples-4.0.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/twitter4j/twitter4j-async/4.0.7/twitter4j-async-4.0.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/twitter4j/twitter4j-stream/4.0.7/twitter4j-stream-4.0.7.jar" enabled="true" runInBatchMode="false"/>
+    <factorypathentry kind="VARJAR" id="M2_REPO/org/twitter4j/twitter4j-http2-support/4.0.7/twitter4j-http2-support-4.0.7.jar" enabled="true" runInBatchMode="false"/>
     <factorypathentry kind="VARJAR" id="M2_REPO/com/google/apis/google-api-services-gmail/v1-rev110-1.25.0/google-api-services-gmail-v1-rev110-1.25.0.jar" enabled="true" runInBatchMode="false"/>
 </factorypath>

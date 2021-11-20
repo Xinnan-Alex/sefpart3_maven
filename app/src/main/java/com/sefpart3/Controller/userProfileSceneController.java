@@ -42,6 +42,7 @@ import javafx.scene.web.WebView;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+
 import twitter4j.Status;
 import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
@@ -49,8 +50,9 @@ import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
 import twitter4j.auth.AccessToken;
 import twitter4j.auth.RequestToken;
+import twitter4j.conf.Configuration;
+import twitter4j.conf.ConfigurationBuilder;
 
-import twitter4j.TwitterRuntimeException;
 import kotlin.jvm.internal.Intrinsics;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
@@ -64,7 +66,6 @@ public class userProfileSceneController implements Initializable{
     @FXML
     private Button backButton,twitterButton;
 
-    Twitter twitter;
     RequestToken requestToken;
     AccessToken accessToken;
     Boolean setupcomplete = false;
@@ -80,16 +81,10 @@ public class userProfileSceneController implements Initializable{
     }
 
     public void twitterButtonHandler() throws JSONException, TwitterException{
-        
-        String filepath =  "../Resources/twitterSecret.json";
-        InputStream is = userProfileSceneController.class.getResourceAsStream(filepath);
-        BufferedReader in = new BufferedReader(new InputStreamReader(is));
-        JSONTokener tokener = new JSONTokener(in);
-        JSONObject twitterSecret = new JSONObject(tokener);
-        twitter = new TwitterAPI(twitterSecret.getString("apikey"), twitterSecret.getString("apisecret")).getTwitterInstance();
-        
-        // twitter.setOAuthConsumer(twitterSecret.getString("apikey"), twitterSecret.getString("apisecret"));
-        requestToken = twitter.getOAuthRequestToken();
+        Twitter twitterclient = new TwitterAPI().getTwitterInstance();
+        // twitterclient.setOAuthConsumer(consumerKey, consumerSecret);
+
+        requestToken = twitterclient.getOAuthRequestToken();
         String url = requestToken.getAuthorizationURL();
 
         if (accessToken == null){
@@ -123,7 +118,7 @@ public class userProfileSceneController implements Initializable{
                                     else{
                                         try{
                                             //accessToken that need to be store in User Object
-                                            accessToken = twitter.getOAuthAccessToken(requestToken, setupDialog.getEditor().getText());
+                                            accessToken = twitterclient.getOAuthAccessToken(requestToken, setupDialog.getEditor().getText());
                                             //gettoken and getttokensecret to store into csv
                                             System.out.println(accessToken.getToken());
                                             System.out.println(accessToken.getTokenSecret());
