@@ -20,9 +20,9 @@
             <Font name="Josefin Sans Bold" size="24.0" />
          </font>
       </Label>
-      <Button fx:id="userCounsellingSessionBtn" layoutX="14.0" layoutY="278.0" mnemonicParsing="false" onAction="#userCounsellingSessionBtnHandler" prefHeight="50.0" prefWidth="142.0" text="Counselling Session">
+      <Button fx:id="userCounsellingSessionBtn" layoutX="14.0" layoutY="278.0" mnemonicParsing="false" onAction="#userCounsellingSessionBtnHandler" prefHeight="50.0" prefWidth="150.0" text="Counselling Session">
          <font>
-            <Font size="14.0" />
+            <Font name="Josefin Sans Bold" size="14.0" />
          </font></Button>
       <Button fx:id="userProfileBtn" layoutX="257.0" layoutY="14.0" mnemonicParsing="false" onAction="#userViewProfileBtnHandler" prefHeight="35.0" prefWidth="33.0" style="-fx-background-color: transparent;">
          <graphic>
@@ -34,13 +34,13 @@
          </graphic></Button>
       <Button fx:id="userCallReminderBtn" layoutX="175.0" layoutY="278.0" mnemonicParsing="false" onAction="#userCallReminderBtnHandler" prefHeight="50.0" prefWidth="142.0" text="Call Reminder">
          <font>
-            <Font size="14.0" />
+            <Font name="Josefin Sans Bold" size="14.0" />
          </font></Button>
       <Button fx:id="userMessageBtn" layoutX="93.0" layoutY="365.0" mnemonicParsing="false" onAction="#userMessageBtnHandler" prefHeight="50.0" prefWidth="142.0" text="Message">
          <font>
-            <Font size="14.0" />
+            <Font name="Josefin Sans Bold" size="14.0" />
          </font></Button>
-      <Button fx:id="logoutButton" layoutX="14.0" layoutY="14.0" minHeight="19.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="35.0" prefWidth="36.0" style="-fx-background-color: transparent;">
+      <Button fx:id="logoutButton" layoutX="-1.0" minHeight="19.0" mnemonicParsing="false" onAction="#logoutButtonHandler" prefHeight="35.0" prefWidth="36.0" style="-fx-background-color: transparent;">
          <font>
             <Font size="7.0" />
          </font>
@@ -48,7 +48,8 @@
             <ImageView fitHeight="43.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../Resources/images/back_64px.png" />
-               </image></ImageView>
+               </image>
+            </ImageView>
          </graphic>
       </Button>
       <Label layoutX="122.0" layoutY="99.0" text="HELLO" textFill="WHITE">

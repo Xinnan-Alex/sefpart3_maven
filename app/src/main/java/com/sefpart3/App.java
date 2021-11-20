@@ -2,8 +2,6 @@ package com.sefpart3;
 
 import java.io.IOException;
 
-import com.sefpart3.Model.TwitterAPI;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,8 +31,6 @@ public class App extends Application{
 
         primaryStage.setResizable(false);
         primaryStage.show();
-
-        //TwitterAPI.sendTweet(accessToken, tweetmessage);
 
     }
 
