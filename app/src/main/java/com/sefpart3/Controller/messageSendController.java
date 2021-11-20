@@ -10,10 +10,15 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 import com.sefpart3.Model.Session;
+import com.sefpart3.Model.TwitterAPI;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import twitter4j.Twitter;
+import twitter4j.TwitterException;
+import twitter4j.auth.AccessToken;
 import javafx.scene.*;
 import java.io.IOException;
 
@@ -52,7 +57,15 @@ public class messageSendController {
         
 
         //Twitter
-        
+        try{
+            AccessToken accessToken = Session.getInstance().getUser().getTwitter();
+            Twitter twitterclient = TwitterAPI.getTwitterInstance();
+            twitterclient.setOAuthAccessToken(accessToken);
+            twitterclient.updateStatus(messageList.getValue().toString());
+        }catch(Exception e){
+            twitterAlert();
+        }
+
     }
 
     private String formatMessage(String message){

@@ -214,9 +214,11 @@ public class userProfileSceneController implements Initializable{
         userAddress.setText(user.getAddress());
         userContactNumber.setText(user.getPhoneNo());
 
-        
-        if (user.getTwitter() != null){
+        System.out.println("user.getTwitter().getToken():" + user.getTwitter().getToken());
+        System.out.println("user.getTwitter().getTokenSecret():" + user.getTwitter().getTokenSecret());
+        if (user.getTwitter().getToken() != null || user.getTwitter().getTokenSecret() != null){
             twitterButton.setDisable(true);
+            twitterButton.setText("Connected:" + user.getTwitter().getScreenName());
         }
       
     }

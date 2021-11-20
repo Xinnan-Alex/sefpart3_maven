@@ -15,6 +15,7 @@ import twitter4j.auth.AccessToken;
 public class TwitterAPI {
 
     private static Twitter twitter = new TwitterFactory().getInstance();
+    private static Boolean setupdone = false;
 
     private TwitterAPI() {
         String filepath =  "../Resources/twitterSecret.json";
@@ -24,10 +25,11 @@ public class TwitterAPI {
         JSONObject twitterSecret = new JSONObject(tokener);
 
         twitter.setOAuthConsumer(twitterSecret.getString("apikey"), twitterSecret.getString("apisecret"));
+        setupdone = true;
     }
 
     public static Twitter getTwitterInstance(){
-        if (twitter.getConfiguration() == null){
+        if (setupdone == false){
             new TwitterAPI();
         }
 
@@ -60,17 +62,6 @@ public class TwitterAPI {
     //             e.printStackTrace();
     //         }
     // }
-
-    public static void sendTweet(AccessToken accessToken, String tweetmessage){
-        try {
-            twitter.setOAuthAccessToken(accessToken);
-            twitter.updateStatus(tweetmessage);
-            System.out.println("User: " + twitter.getScreenName() + " succcessfully updated status: " + tweetmessage);
-        } catch (TwitterException e) {
-            e.printStackTrace();
-        }
-        
-    }
     
 
 }
