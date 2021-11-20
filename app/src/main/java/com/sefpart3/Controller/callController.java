@@ -47,12 +47,12 @@ public class callController {
 
     @FXML
     void switchToCallReminder(ActionEvent event) throws IOException {
-        loadFXML("/View/callReminderView.fxml",event);
+        loadFXML("../View/callReminderView.fxml",event);
     }
 
     @FXML
     void switchToHomePage(ActionEvent event) throws IOException{
-        loadFXML("/View/userHomepageScene.fxml", event);
+        loadFXML("../View/userHomepageScene.fxml", event);
     }
 
     private String confirmationAlert() throws Exception {

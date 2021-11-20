@@ -58,7 +58,7 @@ public class RequestCounsellingController {
     
     @FXML
     void switchToCList(ActionEvent event) throws IOException {
-        loadFXML("/View/CounsellorListScene.fxml", event);
+        loadFXML("../View/CounsellorListScene.fxml", event);
     }
 
     @FXML
@@ -74,7 +74,7 @@ public class RequestCounsellingController {
         CounsellingSession cs = new CounsellingSession(Session.getInstance().getUser() , counsellor, selectedDate.toString() , reason.getText(), time, link);
         cs.write();
         Session.getInstance().addCSession(cs);
-        loadFXML("/View/userHomepageScene.fxml", event);
+        loadFXML("../View/userHomepageScene.fxml", event);
     }
 
     @FXML
@@ -82,7 +82,7 @@ public class RequestCounsellingController {
         /*
         Button temp = (Button)event.getSource();
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/View/counsellorProfileScene.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/counsellorProfileScene.fxml"));
         root = loader.load();
 
         counsellorProfileSceneController cpsc = loader.getController();
