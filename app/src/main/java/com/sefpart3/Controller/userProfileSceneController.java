@@ -81,7 +81,7 @@ public class userProfileSceneController implements Initializable{
     }
 
     public void twitterButtonHandler() throws JSONException, TwitterException{
-        Twitter twitterclient = new TwitterAPI().getTwitterInstance();
+        Twitter twitterclient = TwitterAPI.getTwitterInstance()
         // twitterclient.setOAuthConsumer(consumerKey, consumerSecret);
 
         requestToken = twitterclient.getOAuthRequestToken();
@@ -120,9 +120,9 @@ public class userProfileSceneController implements Initializable{
                                             //accessToken that need to be store in User Object
                                             accessToken = twitterclient.getOAuthAccessToken(requestToken, setupDialog.getEditor().getText());
                                             //gettoken and getttokensecret to store into csv
-                                            System.out.println(accessToken.getToken());
-                                            System.out.println(accessToken.getTokenSecret());
+                                            
                                             setupcomplete = true;
+
 
                                         }catch(TwitterException e){
                                             e.printStackTrace();
