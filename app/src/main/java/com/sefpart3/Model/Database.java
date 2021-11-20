@@ -10,7 +10,7 @@ public class Database{
 
   public static void writeData(String tableName, List<String> Entry){
     String fileName = tableName + ".csv";
-    String filePath = "src/Database/"+fileName;
+    String filePath = "app/src/main/java/com/sefpart3/Database/"+fileName;
     try{
         FileWriter pw = new FileWriter(filePath,true);
         System.out.println("Writing " + fileName);
@@ -34,7 +34,7 @@ public class Database{
 
   public static void writeAllData(String tableName, List<List<String>> All){
     String fileName = tableName + ".csv";
-    String filePath = "src/Database/"+fileName;
+    String filePath = "app/src/main/java/com/sefpart3/Database/"+fileName;
     try{
         FileWriter pw = new FileWriter(filePath);
         System.out.println("Writing " + fileName);
@@ -76,7 +76,7 @@ public class Database{
 
   public static List<List<String>> readData(String tableName){
     String fileName = tableName + ".csv";
-    String filePath = "src/Database/"+fileName;
+    String filePath = "app/src/main/java/com/sefpart3/Database/"+fileName;
     List<List<String>> table = new ArrayList<List<String>>();
     try{
         String row = null;

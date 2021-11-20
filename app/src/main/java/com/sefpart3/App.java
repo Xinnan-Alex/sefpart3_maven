@@ -21,7 +21,7 @@ public class App extends Application{
 
         primaryStage.setScene(scene);
 
-        Image stageicon = new Image("Resources/images/iamfine.png");
+        Image stageicon = new Image(getClass().getResource("Resources/images/iamfine.png").toURI().toString());
 
          //adding icon to the window
         primaryStage.getIcons().add(stageicon);
