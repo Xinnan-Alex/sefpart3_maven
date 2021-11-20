@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import twitter4j.auth.AccessToken;
 import javafx.scene.Parent;
 
 public class App extends Application{
@@ -30,6 +31,8 @@ public class App extends Application{
 
         primaryStage.setResizable(false);
         primaryStage.show();
+
+
 
     }
 

@@ -12,23 +12,19 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import twitter4j.JSONObject;
 import twitter4j.JSONTokener;
+import twitter4j.StatusUpdate;
 import twitter4j.Twitter;
 import twitter4j.TwitterException;
 import twitter4j.TwitterFactory;
+import twitter4j.conf.ConfigurationBuilder;
 import twitter4j.auth.AccessToken;
 
 public class TwitterAPI {
 
-    private Twitter twitter = new TwitterFactory().getInstance();
+    Twitter twitter = new TwitterFactory().getInstance();
 
-    public TwitterAPI() {
-        String filepath =  "../Resources/twitterSecret.json";
-        InputStream is = TwitterAPI.class.getResourceAsStream(filepath);
-        BufferedReader in = new BufferedReader(new InputStreamReader(is));
-        JSONTokener tokener = new JSONTokener(in);
-        JSONObject twitterSecret = new JSONObject(tokener);
-
-        twitter.setOAuthConsumer(twitterSecret.getString("apikey"), twitterSecret.getString("apisecret"));
+    public TwitterAPI(String apikey,String apisecret) {
+        twitter.setOAuthConsumer(apikey, apisecret);
     }
 
     public Twitter getTwitterInstance(){
