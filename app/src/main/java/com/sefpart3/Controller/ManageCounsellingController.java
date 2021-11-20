@@ -37,7 +37,7 @@ public class ManageCounsellingController {
             CounsellingSession current = counsellingSessions.get(i);
             nameLabels.get(i).setText(current.getUser().getName());
             descLabels.get(i).setText(counsellingSessions.get(i).getReason());
-            }catch(NullPointerException e){
+            }catch(IndexOutOfBoundsException e){
                 joinButtons.get(i).setVisible(false);
                 descLabels.get(i).setVisible(false);
                 nameLabels.get(i).setVisible(false);

@@ -67,7 +67,7 @@ public class Session {
                 users.get(i).getReminder().setLink(reminder.get(3));
             }
         }
-        //System.out.println("Total no. of User: " users.size());
+        System.out.println("Total no. of User: " + users.size());
 
         for(int i = 0; i < counsellorDB.size(); i++){
             String licenseNo;
@@ -81,13 +81,12 @@ public class Session {
             licenseNo = counsellorDB.get(i).get(5);
             desc = counsellorDB.get(i).get(6);
 
-
             counsellors.add(new Counsellor(email, password, name, phoneNo, licenseNo));
             counsellors.get(i).setDOB(DOB);
             counsellors.get(i).setDesc(desc);
         }
 
-        //System.out.println("Total no. of Counsellor: " counsellors.size());
+        System.out.println("Total no. of Counsellor: " + counsellorDB.size());
 
         for(int i = 0; i < counsellingSessionDB.size(); i++){
             User c_user = null;
@@ -120,7 +119,7 @@ public class Session {
             counsellingSessions.get(i).setJoined("User", Boolean.parseBoolean(user_Joined));
             counsellingSessions.get(i).setJoined("Counsellor", Boolean.parseBoolean(counsellor_Joined));
         }
-        //System.out.println("Total no. of Counselling Session: " counsellingSessions.size());
+        System.out.println("Total no. of Counselling Session: " + counsellingSessions.size());
 
         if(isLoggedIn){
             
