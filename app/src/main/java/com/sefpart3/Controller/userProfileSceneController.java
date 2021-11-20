@@ -6,8 +6,13 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Pattern;
 
 import javax.accessibility.AccessibleSelection;
 
@@ -22,7 +27,10 @@ import org.json.JSONTokener;
 import com.sefpart3.Model.OAuthAuthenticator;
 import com.sefpart3.Model.OAuthCompletedCallback;
 import com.sefpart3.Model.OAuthTwitterAuthenticator;
+import com.sefpart3.Model.Session;
 import com.sefpart3.Model.TwitterAPI;
+import com.sefpart3.Model.User;
+
 import javafx.application.Platform;
 import javafx.concurrent.Worker.State;
 import javafx.event.ActionEvent;
@@ -34,6 +42,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.DialogEvent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
@@ -41,6 +50,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
+import javafx.util.StringConverter;
 import javafx.scene.Scene;
 import twitter4j.Status;
 import twitter4j.StatusUpdate;
@@ -62,7 +72,15 @@ import okhttp3.Response;
 public class userProfileSceneController implements Initializable{
 
     @FXML
-    private Button backButton,twitterButton;
+    private Button backButton,twitterButton, editProfileButton;
+
+    @FXML
+    private TextField userName, userEmail, userAddress, userContactNumber;
+
+    @FXML
+    private DatePicker userDob;
+
+    private User user;
 
     Twitter twitter;
     RequestToken requestToken;
@@ -78,6 +96,99 @@ public class userProfileSceneController implements Initializable{
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.setScene(new Scene(root));
     }
+
+    public void editProfileHandler(ActionEvent event) throws IOException{
+        
+        Button temp;
+        temp = (Button)event.getSource();
+
+        if(temp.getText().equals("Edit Profile")){
+            temp.setText("Save");
+            userName.setEditable(true);
+            userDob.setDisable(false);
+            userEmail.setEditable(true);
+            userAddress.setEditable(true);
+            userContactNumber.setEditable(true);
+        }
+        else{
+            temp.setText("Edit Profile");
+            userName.setEditable(false);
+            userDob.setDisable(true);
+            userEmail.setEditable(false);
+            userAddress.setEditable(false);
+            userContactNumber.setEditable(false);
+            user.setName(userName.getText());
+            user.setDOB(userDob.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyy")));
+            user.setAddress(userAddress.getText());
+            user.setEmail(userEmail.getText());
+            user.setPhoneNo(userContactNumber.getText());
+
+            // if(phonenumberValidation(userContactNumber.getText())){    
+            //     user.setPhoneNo(userContactNumber.getText());
+            // }
+            
+            Session.getInstance().editPerformed("User");;
+        }
+    }
+
+    // public Boolean phonenumberValidation(String phonenumber){
+    //     Boolean phonenumberValid = false;
+
+    //     if (phonenumber.isEmpty()){
+    //         phonenumberValid = false;
+    //     }
+    //     else{
+    //         if ((phonenumber.charAt(0)) == ('0') && (phonenumber.charAt(1)) == ('1')){
+    //             if (phonenumber.length() == 10 || phonenumber.length() == 11){
+    //                 phonenumberValid = true;
+    //             }
+    //             else{
+    //                 phonenumberValid = false;
+    //             }
+    //         }
+    //         else{
+    //             phonenumberValid = false;
+    //         }
+    //     }
+
+    //     //alert message
+    //     if (!phonenumberValid){
+    //         new Alert(AlertType.ERROR,"Invalid phonenumber, please try again").show();
+    //     }
+
+    //     return phonenumberValid;
+
+    // }
+
+    // public Boolean emailValidation(String email){
+    //     Boolean emailValid = false;
+
+    //     Session session = Session.getInstance();
+    //     ArrayList<User> users = session.getUsers();
+
+    //     final Pattern rfc2822 = Pattern.compile(
+    //         "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$");
+
+    //     if (!rfc2822.matcher(email).matches()) {
+    //         new Alert(AlertType.ERROR,"Invalid email format, please try again").show();
+    //         emailValid = false;
+    //     }else{
+    //         for(User u:users){
+    //             if (u.getEmail().equals(email)){
+    //                 new Alert(AlertType.ERROR,"Email is already registerred, please try again").show();
+    //                 emailValid = false;
+    //                 break;
+    //             }
+    //             else{
+    //                 emailValid = true;
+    //             }
+    //         }
+    //         ;
+    //     }
+
+    //     return emailValid;
+        
+    // }
 
     public void twitterButtonHandler() throws JSONException, TwitterException{
         
@@ -158,10 +269,43 @@ public class userProfileSceneController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        userDob.setConverter(new StringConverter<LocalDate>()
+    {
+        private DateTimeFormatter dateTimeFormatter=DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        @Override
+        public String toString(LocalDate localDate)
+        {
+            if(localDate==null)
+                return "";
+            return dateTimeFormatter.format(localDate);
+        }
+
+        @Override
+        public LocalDate fromString(String dateString)
+        {
+            if(dateString==null || dateString.trim().isEmpty())
+            {
+                return null;
+            }
+            return LocalDate.parse(dateString,dateTimeFormatter);
+        }
+    });
+
         if (accessToken!=null){
             twitterButton.setDisable(true);
         }
-            
+
+        user = Session.getInstance().getUser();
+
+        userDob.setDisable(true);
+        userName.setText(user.getName());  
+        userDob.setValue(LocalDate.parse(user.getDOB(), DateTimeFormatter.ofPattern("dd/MM/yyy")));
+        userEmail.setText(user.getEmail());
+        userAddress.setText(user.getAddress());
+        userContactNumber.setText(user.getPhoneNo());
+      
     }
 
 }
