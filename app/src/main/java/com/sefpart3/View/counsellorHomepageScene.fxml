@@ -15,12 +15,12 @@
       <URL value="@../Resources/css/text.css" />
    </stylesheets>
    <children>
-      <Label layoutX="122.0" layoutY="125.0" text="HELLO">
+      <Label layoutX="129.0" layoutY="123.0" text="HELLO">
          <font>
             <Font name="Josefin Sans Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="62.0" layoutY="168.0" text="WELCOME BACK">
+      <Label layoutX="76.0" layoutY="166.0" text="WELCOME BACK">
          <font>
             <Font name="Josefin Sans Bold" size="24.0" />
          </font>
@@ -34,8 +34,10 @@
             </ImageView>
          </graphic>
       </Button>
-      <Button fx:id="counsellorManageCounsellingSessionBtn" layoutX="80.0" layoutY="246.0" mnemonicParsing="false" onAction="#counsellorManageCounsellingSessionBtnHandler" prefHeight="61.0" prefWidth="171.0" text="Manage Couselling Session" />
-      <Button fx:id="counsellorJoinMeetingBtn" layoutX="80.0" layoutY="359.0" mnemonicParsing="false" onAction="#counsellorJoinMeetingBtnHandler" prefHeight="48.0" prefWidth="171.0" text="Join Metting " />
+      <Button fx:id="counsellorManageCounsellingSessionBtn" layoutX="79.0" layoutY="269.0" mnemonicParsing="false" onAction="#counsellorManageCounsellingSessionBtnHandler" prefHeight="61.0" prefWidth="171.0" text="Couselling Session">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
       <Button fx:id="logoutButton" layoutX="14.0" layoutY="25.0" mnemonicParsing="false" onAction="#logoutButtonHandler" style="-fx-background-color: transparent;">
          <graphic>
             <ImageView fitHeight="40.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
