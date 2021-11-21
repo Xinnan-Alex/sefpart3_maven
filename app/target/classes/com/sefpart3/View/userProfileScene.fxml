@@ -56,7 +56,7 @@
             <Font name="Josefin Sans Bold" size="12.0" />
          </font></Label>
       <DatePicker fx:id="userDob" editable="false" layoutX="124.0" layoutY="196.0" stylesheets="@../Resources/css/datePicker.css" />
-      <Label alignment="TOP_RIGHT" layoutX="14.0" layoutY="474.0" prefHeight="25.0" prefWidth="100.0" text="Twitter">
+      <Label fx:id="twitterLabel" alignment="TOP_RIGHT" layoutX="14.0" layoutY="474.0" prefHeight="25.0" prefWidth="100.0" text="Twitter">
          <font>
             <Font name="Josefin Sans Bold" size="12.0" />
          </font>
@@ -70,7 +70,7 @@
          <font>
             <Font name="Josefin Sans Bold" size="12.0" />
          </font></Button>
-      <Label alignment="TOP_RIGHT" layoutX="14.0" layoutY="412.0" prefHeight="25.0" prefWidth="100.0" text="Guardian">
+      <Label fx:id="guardianLabel" alignment="TOP_RIGHT" layoutX="14.0" layoutY="412.0" prefHeight="25.0" prefWidth="100.0" text="Guardian">
          <font>
             <Font name="Josefin Sans Bold" size="12.0" />
          </font>

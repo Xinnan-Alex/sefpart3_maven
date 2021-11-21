@@ -3,10 +3,12 @@ package com.sefpart3.Controller;
 //JAVA IMPORTS
 import java.io.IOException;
 import java.util.ResourceBundle;
+
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import java.net.URL;
 
+import com.sefpart3.Model.CounsellingSession;
 import com.sefpart3.Model.Counsellor;
 import com.sefpart3.Model.Session;
 
@@ -35,12 +37,37 @@ public class counsellorProfileSceneController implements Initializable{
     private DatePicker counsellorDob;
 
     private Counsellor counsellor;
+    private CounsellingSession cs;
+    private Boolean isForeign;
+    private String previousPage;
 
     public void backButtonHandler() throws IOException{
             
-        FXMLLoader loader = new FXMLLoader();
-        loader = new FXMLLoader(getClass().getResource("../View/counsellorHomepageScene.fxml"));
-        Parent root = loader.load();
+        FXMLLoader loader;
+        Parent root;
+
+        if(!(isForeign)){
+            loader = new FXMLLoader(getClass().getResource("../View/counsellorHomepageScene.fxml"));
+            root = loader.load();
+        }
+        else{
+            if(previousPage.equals("Request")){
+                loader = new FXMLLoader(getClass().getResource("../View/RequestCounsellingScene.fxml"));
+                root = loader.load();
+                RequestCounsellingController rcc = loader.getController();
+                rcc.setCounsellor(counsellor);
+            }
+            else if(previousPage.equals("Join")){
+                loader = new FXMLLoader(getClass().getResource("../View/JoinCounsellingScene.fxml"));
+                root = loader.load();
+                JoinCounsellingController jcc = loader.getController(); 
+                jcc.setCSession(cs);
+            }
+            else{
+                loader = new FXMLLoader(getClass().getResource("../View/CounsellorListScene.fxml"));
+                root = loader.load();
+            }
+        }
 
         // tenantHomepageSceneController controller =  loader.getController();
         // controller.initUserObejct(loggedinPerson);
@@ -80,6 +107,55 @@ public class counsellorProfileSceneController implements Initializable{
         }
     }
 
+    public void viewProfile(){
+        isForeign = false;
+        counsellor = Session.getInstance().getCounsellor();
+
+        counsellorDob.setDisable(true);
+        counsellorName.setText(counsellor.getName());  
+
+        if(counsellor.getDOB().equals("null") ){
+ 
+            counsellorDob.setValue(LocalDate.parse("2018-11-01"));
+
+        }else{
+            counsellorDob.setValue(LocalDate.parse(counsellor.getDOB(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+
+        
+        counsellorLicenseNo.setText(counsellor.getLicenseNo());
+        counsellorDesc.setText(counsellor.getDesc());
+        counsellorContactNumber.setText(counsellor.getPhoneNo());
+    }
+
+    public void viewProfile(Counsellor counsellor, String previousPage){
+        isForeign = true;
+        this.previousPage = previousPage;
+        this.counsellor = counsellor;
+
+        counsellorDob.setDisable(true);
+        counsellorName.setText(counsellor.getName());  
+
+        if(counsellor.getDOB().equals("null") ){
+ 
+            counsellorDob.setValue(LocalDate.parse("2018-11-01"));
+
+        }else{
+            counsellorDob.setValue(LocalDate.parse(counsellor.getDOB(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+
+        counsellorLicenseNo.setText(counsellor.getLicenseNo());
+        counsellorDesc.setText(counsellor.getDesc());
+        counsellorContactNumber.setText(counsellor.getPhoneNo());
+
+        editProfileButton.setVisible(false);
+    }
+
+    public void setCSession(CounsellingSession cs){
+        this.cs = cs;
+        viewProfile(cs.getCounsellor(), "Join");
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -107,6 +183,7 @@ public class counsellorProfileSceneController implements Initializable{
     });
 
 
+    /*
         counsellor = Session.getInstance().getCounsellor();
 
         counsellorDob.setDisable(true);
@@ -124,6 +201,7 @@ public class counsellorProfileSceneController implements Initializable{
         counsellorLicenseNo.setText(counsellor.getLicenseNo());
         counsellorDesc.setText(counsellor.getDesc());
         counsellorContactNumber.setText(counsellor.getPhoneNo());
+        */
       
     }
 }

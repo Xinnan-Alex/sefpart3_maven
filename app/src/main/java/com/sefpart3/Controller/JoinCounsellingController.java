@@ -77,25 +77,25 @@ public class JoinCounsellingController {
 
     @FXML
     void switchToView(ActionEvent event) throws IOException{
-        /*
         FXMLLoader loader;
 
         if(role.equals("User")){ // login as user, check counsellor's profile
             loader = new FXMLLoader(getClass().getResource("../View/counsellorProfileScene.fxml"));
             root = loader.load();
             counsellorProfileSceneController cpsc = loader.getController();
+            cpsc.setCSession(cs);
         }
         else{ // login as counsellor, check user's profile
             loader = new FXMLLoader(getClass().getResource("../View/userProfileScene.fxml"));
             root = loader.load();
             userProfileSceneController upsc = loader.getController();
+            upsc.setCSession(cs);
         }
 
         primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 330, 600));
         primaryStage.show();
-        */
     }
 
     public void cancelSession(ActionEvent event)throws IOException{

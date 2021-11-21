@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import org.json.JSONException;
 
+import com.sefpart3.Model.CounsellingSession;
 import com.sefpart3.Model.Session;
 import com.sefpart3.Model.TwitterAPI;
 import com.sefpart3.Model.User;
@@ -22,6 +23,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.web.WebEngine;
@@ -46,9 +48,14 @@ public class userProfileSceneController implements Initializable{
     private TextField userName, userEmail, userAddress, userContactNumber;
 
     @FXML
+    private Label guardianLabel, twitterLabel;
+
+    @FXML
     private DatePicker userDob;
 
     private User user;
+    private CounsellingSession cs;
+    private Boolean isForeign;
 
     Twitter twitter;
     RequestToken requestToken;
@@ -57,9 +64,19 @@ public class userProfileSceneController implements Initializable{
 
     public void backButtonHandler() throws IOException{
             
-        FXMLLoader loader = new FXMLLoader();
-        loader = new FXMLLoader(getClass().getResource("../View/userHomepageScene.fxml"));
-        Parent root = loader.load();
+        FXMLLoader loader;
+        Parent root;
+
+        if(!(isForeign)){
+            loader = new FXMLLoader(getClass().getResource("../View/userHomepageScene.fxml"));
+            root = loader.load();
+        }
+        else{
+            loader = new FXMLLoader(getClass().getResource("../View/JoinCounsellingScene.fxml"));
+            root = loader.load();
+            JoinCounsellingController jcc = loader.getController(); 
+            jcc.setCSession(cs);
+        }
 
         Stage stage = (Stage) backButton.getScene().getWindow();
         stage.setScene(new Scene(root));
@@ -171,6 +188,63 @@ public class userProfileSceneController implements Initializable{
         
     }
 
+    public void viewProfile(){
+        isForeign = false;
+        user = Session.getInstance().getUser();
+
+        userDob.setDisable(true);
+        userName.setText(user.getName()); 
+
+        if(user.getDOB().equals("null") ){
+ 
+            userDob.setValue(LocalDate.parse("2018-11-01"));
+
+        }else{
+            userDob.setValue(LocalDate.parse(user.getDOB(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+        
+        userEmail.setText(user.getEmail());
+        userAddress.setText(user.getAddress());
+        userContactNumber.setText(user.getPhoneNo());
+
+        System.out.println("user.getTwitter().getToken():" + user.getTwitter().getToken());
+        System.out.println("user.getTwitter().getTokenSecret():" + user.getTwitter().getTokenSecret());
+        if (!(user.getTwitter().getToken().equals(" ")) || !(user.getTwitter().getTokenSecret().equals(" "))){
+            twitterButton.setDisable(true);
+            twitterButton.setText("Connected:" + user.getTwitter().getScreenName());
+        }
+    }
+
+    public void viewProfile(User user){
+        isForeign = true;
+        this.user = user;
+
+        userDob.setDisable(true);
+        userName.setText(user.getName()); 
+
+        if(user.getDOB().equals("null") ){
+            userDob.setValue(LocalDate.parse("2018-11-01"));
+
+        }else{
+            userDob.setValue(LocalDate.parse(user.getDOB(), DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        }
+        
+        userEmail.setText(user.getEmail());
+        userAddress.setText(user.getAddress());
+        userContactNumber.setText(user.getPhoneNo());
+
+        editProfileButton.setVisible(false);
+        twitterButton.setVisible(false);
+        guardianProfileButton.setVisible(false);
+        twitterLabel.setVisible(false);
+        guardianLabel.setVisible(false);
+    }
+
+    public void setCSession(CounsellingSession cs){
+        this.cs = cs;
+        viewProfile(cs.getUser());
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
@@ -197,8 +271,9 @@ public class userProfileSceneController implements Initializable{
         }
     });
 
-        user = Session.getInstance().getUser();
+        //user = Session.getInstance().getUser();
 
+        /*
         userDob.setDisable(true);
         userName.setText(user.getName()); 
 
@@ -220,6 +295,7 @@ public class userProfileSceneController implements Initializable{
             twitterButton.setDisable(true);
             twitterButton.setText("Connected:" + user.getTwitter().getScreenName());
         }
+        */
       
     }
 

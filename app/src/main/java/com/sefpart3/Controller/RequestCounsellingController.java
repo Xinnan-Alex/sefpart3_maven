@@ -2,8 +2,6 @@ package com.sefpart3.Controller;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
@@ -23,7 +21,6 @@ import com.sefpart3.Model.Counsellor;
 import com.sefpart3.Model.Session;
 import javafx.scene.Node;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import javafx.util.Callback;
 import javafx.scene.control.DateCell;
 public class RequestCounsellingController {
@@ -103,21 +100,17 @@ public class RequestCounsellingController {
 
     @FXML
     void switchToView(ActionEvent event) throws IOException{
-        /*
-        Button temp = (Button)event.getSource();
+        FXMLLoader loader;
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/counsellorProfileScene.fxml"));
+        loader = new FXMLLoader(getClass().getResource("../View/counsellorProfileScene.fxml"));
         root = loader.load();
-
         counsellorProfileSceneController cpsc = loader.getController();
-        
-        cpsc.setCounsellor(counsellor);
+        cpsc.viewProfile(counsellor, "Request");
 
         primaryStage = (Stage)((Node)event.getSource()).getScene().getWindow();
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 330, 600));
         primaryStage.show();
-        //*/
     }
 
     public void setCounsellor(Counsellor counsellor){

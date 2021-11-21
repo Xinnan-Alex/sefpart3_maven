@@ -23,7 +23,8 @@ public class counsellorHomepageSceneController {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/counsellorProfileScene.fxml"));
         Parent root = fxmlLoader.load();
         
-        //userProfileSceneController controller = fxmlLoader.getController();
+        counsellorProfileSceneController controller = fxmlLoader.getController();
+        controller.viewProfile();
         //controller.initUserObejct(loggedinPerson);
         
         Stage window = (Stage)counsellorProfileBtn.getScene().getWindow();

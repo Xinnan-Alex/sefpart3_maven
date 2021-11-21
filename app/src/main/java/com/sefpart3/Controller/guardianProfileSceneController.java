@@ -56,6 +56,8 @@ public class guardianProfileSceneController implements Initializable{
     public void backButtonHandler() throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/userProfileScene.fxml"));
         Parent root = fxmlLoader.load();
+        userProfileSceneController upsc = fxmlLoader.getController();
+        upsc.viewProfile();
 
         Stage window = (Stage)backButton.getScene().getWindow();
         window.setScene(new Scene(root)); 

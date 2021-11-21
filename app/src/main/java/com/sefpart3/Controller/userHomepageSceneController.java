@@ -58,8 +58,9 @@ public class userHomepageSceneController implements Initializable{
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/userProfileScene.fxml"));
         Parent root = fxmlLoader.load();
-        
-        //userProfileSceneController controller = fxmlLoader.getController();
+        userProfileSceneController controller = fxmlLoader.getController();
+        controller.viewProfile();
+
         //controller.initUserObejct(loggedinPerson);
         
         Stage window = (Stage)userProfileBtn.getScene().getWindow();
@@ -106,30 +107,6 @@ public class userHomepageSceneController implements Initializable{
         //controller.initUserObejct(loggedinPerson);
         
         Stage window = (Stage)userMessageBtn.getScene().getWindow();
-        window.setScene(new Scene(root)); 
-    }
-
-    public void userConfigureCallReminderBtnHandler() throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/callReminderView.fxml"));
-        Parent root = fxmlLoader.load();
-        
-        //userProfileSceneController controller = fxmlLoader.getController();
-        //controller.initUserObejct(loggedinPerson);
-        
-        Stage window = (Stage)userConfigureCallReminderBtn.getScene().getWindow();
-        window.setScene(new Scene(root)); 
-    }
-
-    public void userConfigureMessageBtnHandler() throws IOException {
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../View/messageView.fxml"));
-        Parent root = fxmlLoader.load();
-        
-        //userProfileSceneController controller = fxmlLoader.getController();
-        //controller.initUserObejct(loggedinPerson);
-        
-        Stage window = (Stage)userConfigureMessageBtn.getScene().getWindow();
         window.setScene(new Scene(root)); 
     }
 

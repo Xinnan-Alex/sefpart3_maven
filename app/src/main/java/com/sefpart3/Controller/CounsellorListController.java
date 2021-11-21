@@ -67,17 +67,17 @@ public class CounsellorListController {
 
     @FXML
     void switchToView(ActionEvent event) throws IOException{
-        /*
         Button temp = (Button)event.getSource();
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../View/counsellorProfileScene.fxml"));
-        root = loader.load();
+        Parent root = loader.load();
 
         counsellorProfileSceneController cpsc = loader.getController();
         
         for(int i = 0; i < 5; i++){
-            if(temp.equals(bookButtons.get(i))){
-                cpsc.setCounsellor(counsellors.get(i));
+            System.out.println(counsellors.get(i).getName());
+            if(temp.equals(viewButtons.get(i))){
+                cpsc.viewProfile(counsellors.get(i), "List");
                 break;
             }
         }
@@ -86,7 +86,6 @@ public class CounsellorListController {
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, 330, 600));
         primaryStage.show();
-        */
     }
 
     private void loadFXML(String fxmlPath, ActionEvent event) throws IOException {
