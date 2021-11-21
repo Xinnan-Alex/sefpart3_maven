@@ -72,7 +72,10 @@ public class JoinCounsellingController {
         if(cs.getJoined("User") && cs.getJoined("Counsellor")) // if both user and counsellor has joined the google meet, 
             Session.getInstance().removeCounsellingSessions(cs); // this counselling session will be removed
 
-        loadFXML("../View/userHomepageScene.fxml", event);
+        if(role.equals("User"))
+            loadFXML("../View/userHomepageScene.fxml", event);
+        else
+            loadFXML("../View/counsellorHomepageScene.fxml", event);
     }
 
     @FXML
