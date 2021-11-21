@@ -140,7 +140,7 @@ public class userHomepageSceneController implements Initializable{
         for (;;){
             Thread.sleep(1000);
             if(msg.tick()){
-                String path = "src/Resources/sound/IamFine.mp3";    
+                String path = "app/src/main/java/com/sefpart3/Resources/sound/IamFine.mp3";    
                 Media media = new Media(new File(path).toURI().toString());  
         
                 MediaPlayer mediaPlayer = new MediaPlayer(media);    
@@ -153,7 +153,7 @@ public class userHomepageSceneController implements Initializable{
                 Thread.sleep(60000);
             }
             if(call.tick()){
-                String path = "src/Resources/sound/IamFine.mp3";    
+                String path = "app/src/main/java/com/sefpart3/Resources/sound/IamFine.mp3";    
                 Media media = new Media(new File(path).toURI().toString());  
         
                 MediaPlayer mediaPlayer = new MediaPlayer(media);    
