@@ -89,7 +89,7 @@ public class userProfileSceneController implements Initializable{
             editProfileButton.setText("Save");
             userName.setEditable(true);
             userDob.setDisable(false);
-            userEmail.setEditable(true);
+            userEmail.setEditable(false);
             userAddress.setEditable(true);
             userContactNumber.setEditable(true);
         }
@@ -103,7 +103,6 @@ public class userProfileSceneController implements Initializable{
             user.setName(userName.getText());
             user.setDOB(userDob.getValue().format(DateTimeFormatter.ofPattern("dd/MM/yyy")));
             user.setAddress(userAddress.getText());
-            user.setEmail(userEmail.getText());
             user.setPhoneNo(userContactNumber.getText());
 
             // if(phonenumberValidation(userContactNumber.getText())){    
