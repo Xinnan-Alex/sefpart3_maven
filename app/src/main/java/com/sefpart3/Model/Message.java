@@ -12,10 +12,6 @@ public class Message {
         messages[index] = message;
     }
 
-    public void removeMessage(int index){
-        messages[index] = " ";
-    }
-
     public String getMessages(int index){
         return messages[index];
     }

@@ -75,7 +75,6 @@ public class CounsellorListController {
         counsellorProfileSceneController cpsc = loader.getController();
         
         for(int i = 0; i < 5; i++){
-            System.out.println(counsellors.get(i).getName());
             if(temp.equals(viewButtons.get(i))){
                 cpsc.viewProfile(counsellors.get(i), "List");
                 break;
