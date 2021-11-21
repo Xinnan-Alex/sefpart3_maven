@@ -20,12 +20,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.scene.Parent;
@@ -121,7 +123,7 @@ public class userProfileSceneController implements Initializable{
         requestToken = twitter.getOAuthRequestToken();
         String url = requestToken.getAuthorizationURL();
 
-        if (accessToken == null){
+        if (user.getTwitter().getToken().equals(" ") || user.getTwitter().getTokenSecret().equals(" ")){
             try {
                 System.out.println("request token:" + requestToken);
 
@@ -159,6 +161,8 @@ public class userProfileSceneController implements Initializable{
                                             Session.getInstance().editPerformed("User");
                                             setupcomplete = true;
                                             stage.close();
+                                            new Alert(AlertType.INFORMATION,"Twitter account successfully connected!").showAndWait();
+                                            viewProfile();
 
                                         }catch(TwitterException e){
                                             e.printStackTrace();
@@ -183,6 +187,8 @@ public class userProfileSceneController implements Initializable{
                 System.out.print("Exception trying to perform OAuth login:");
                 e.printStackTrace();
             }
+        }else{
+
         }
         
     }
@@ -194,7 +200,7 @@ public class userProfileSceneController implements Initializable{
         userDob.setDisable(true);
         userName.setText(user.getName()); 
 
-        if(user.getDOB().equals("null") ){
+        if(user.getDOB().equals(" ") || user.getDOB().equals("null")){
  
             userDob.setValue(LocalDate.parse("2018-11-01"));
 

@@ -216,7 +216,13 @@ public class registerSceneController implements Initializable,OAuthCompletedCall
                     backButtonHandler();
                     break;
                 }else{
-                    new Alert(AlertType.ERROR,"Invalid verification code, please try again").show();
+                    Alert errorAlert = new Alert(AlertType.ERROR,"Invalid verification code, please try again");
+                    PauseTransition delay2 = new PauseTransition(Duration.seconds(3));   //1 minute timer
+                    delay2.setOnFinished(event -> {
+                        errorAlert.close();
+                    });
+                    delay2.play();
+                    errorAlert.showAndWait();
                 }
 
             }

@@ -10,7 +10,7 @@ public class User extends Account{
 
     private String DOB;
     private String address;
-    private AccessToken twitter;
+    private AccessToken twitter = new AccessToken(" ", " ");
     private Guardian guardian = new Guardian();
     private Message message = new Message();
     private CallReminder reminder = new CallReminder();
@@ -62,8 +62,15 @@ public class User extends Account{
 
     private String accessTokenToString(){
         ArrayList<String> temp = new ArrayList<>();
-        temp.add(twitter.getToken());
-        temp.add(twitter.getTokenSecret());
+
+        if (twitter.getToken().isEmpty() && twitter.getTokenSecret().isEmpty()){
+            temp.add(" ");
+            temp.add(" ");
+        }else{
+            temp.add(twitter.getToken());
+            temp.add(twitter.getTokenSecret());
+        }
+        
 
         return Database.makeString(temp);
     }
