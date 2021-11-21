@@ -48,7 +48,6 @@ public class messageSendController {
         String apiKey = Session.getInstance().getUser().getGuardian().getWA_Key();
         String msg = formatMessage(messageList.getValue().toString());
         String url = "https://api.callmebot.com/whatsapp.php?phone=" + phone_number + "&text=" + msg + "&apikey=" + apiKey;
-
         try{
             open(url);
         }catch(URISyntaxException e){
@@ -70,7 +69,7 @@ public class messageSendController {
 
     private String formatMessage(String message){
         char symbol = '+';
-        String msg = message.replace(' ',symbol) + "--Sent from: " + Session.getInstance().getUser().getName();
+        String msg = message.replace(' ',symbol) + "--Sent+from:+" + (Session.getInstance().getUser().getName()).replace(' ',symbol);
 
         return msg;
     }
