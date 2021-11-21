@@ -216,7 +216,7 @@ public class userProfileSceneController implements Initializable{
 
         System.out.println("user.getTwitter().getToken():" + user.getTwitter().getToken());
         System.out.println("user.getTwitter().getTokenSecret():" + user.getTwitter().getTokenSecret());
-        if (user.getTwitter().getToken() != null || user.getTwitter().getTokenSecret() != null){
+        if (!(user.getTwitter().getToken().equals(" ")) || !(user.getTwitter().getTokenSecret().equals(" "))){
             twitterButton.setDisable(true);
             twitterButton.setText("Connected:" + user.getTwitter().getScreenName());
         }
