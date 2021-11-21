@@ -32,7 +32,7 @@
                </image>
             </ImageView>
          </graphic></Button>
-      <Button fx:id="userCallReminderBtn" layoutX="175.0" layoutY="278.0" mnemonicParsing="false" onAction="#userCallReminderBtnHandler" prefHeight="50.0" prefWidth="142.0" text="Call Reminder">
+      <Button fx:id="userCallReminderBtn" layoutX="175.0" layoutY="278.0" mnemonicParsing="false" onAction="#userCallReminderBtnHandler" prefHeight="50.0" prefWidth="142.0" text="Call">
          <font>
             <Font name="Josefin Sans Bold" size="14.0" />
          </font></Button>
