@@ -19,22 +19,22 @@
    <children>
       <AnchorPane layoutY="218.0" prefHeight="394.0" prefWidth="330.0" style="-fx-background-color: #E0FFFF; -fx-background-radius: 20;" stylesheets="@../Resources/css/textfield_light.css">
          <children>
-            <TextField fx:id="guardianFullnameField" layoutX="63.0" layoutY="56.0" prefHeight="26.0" prefWidth="204.0" promptText="Guardian Full Name">
+            <TextField fx:id="guardianFullnameField" layoutX="153.0" layoutY="54.0" prefHeight="26.0" prefWidth="159.0" promptText="Guardian Full Name">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="guardianPhoneNumField" layoutX="63.0" layoutY="117.0" prefHeight="26.0" prefWidth="204.0" promptText="Guardian Phone Number">
+            <TextField fx:id="guardianPhoneNumField" layoutX="153.0" layoutY="110.0" prefHeight="26.0" prefWidth="159.0" promptText="Guardian Phone Number">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="guardianWAKeyField" layoutX="63.0" layoutY="237.0" prefHeight="31.0" prefWidth="204.0" promptText="Whatsapp Key" style="-fx-border-color: black;">
+            <TextField fx:id="guardianWAKeyField" layoutX="157.0" layoutY="230.0" prefHeight="31.0" prefWidth="159.0" promptText="Whatsapp Key" style="-fx-border-color: black;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </TextField>
-            <TextField fx:id="guardianEmailField" layoutX="63.0" layoutY="174.0" prefHeight="26.0" prefWidth="204.0" promptText="Guardian E-mail" style="-fx-border-color: black;">
+            <TextField fx:id="guardianEmailField" layoutX="157.0" layoutY="170.0" prefHeight="26.0" prefWidth="159.0" promptText="Guardian E-mail" style="-fx-border-color: black;">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -44,7 +44,7 @@
                   <Font name="Josefin Sans Bold" size="14.0" />
                </font>
             </Button>
-            <MenuButton layoutX="267.0" layoutY="240.0" mnemonicParsing="false" stylesheets="@../Resources/css/menuItem.css" text="?">
+            <MenuButton layoutX="279.0" layoutY="261.0" mnemonicParsing="false" stylesheets="@../Resources/css/menuItem.css" text="?">
               <items>
                 <MenuItem disable="true" mnemonicParsing="false">
                      <graphic>
@@ -74,6 +74,26 @@
                   </MenuItem>
               </items>
             </MenuButton>
+            <Label alignment="CENTER_RIGHT" layoutX="1.0" layoutY="52.0" prefHeight="30.0" prefWidth="152.0" text="Guardian Full Name:">
+               <font>
+                  <Font name="Josefin Sans Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="1.0" layoutY="231.0" prefHeight="30.0" prefWidth="152.0" text="Guardian Whatsapp Key:">
+               <font>
+                  <Font name="Josefin Sans Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="1.0" layoutY="168.0" prefHeight="30.0" prefWidth="152.0" text="Guardian Email:">
+               <font>
+                  <Font name="Josefin Sans Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER_RIGHT" layoutX="1.0" layoutY="108.0" prefHeight="30.0" prefWidth="152.0" text="Guardian Phone Number:">
+               <font>
+                  <Font name="Josefin Sans Bold" size="12.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <ImageView fitHeight="112.0" fitWidth="115.0" layoutX="109.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">

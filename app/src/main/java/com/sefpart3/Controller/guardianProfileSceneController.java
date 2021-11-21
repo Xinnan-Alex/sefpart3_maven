@@ -1,6 +1,8 @@
 package com.sefpart3.Controller;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,6 +15,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class guardianProfileSceneController implements Initializable{
@@ -23,7 +28,12 @@ public class guardianProfileSceneController implements Initializable{
     @FXML
     Button confirmButton,backButton,changePicButton;
 
+    @FXML
+    ImageView guardianProfilePic;
+
     private Guardian guardian;
+
+    private Stage stage;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -53,6 +63,12 @@ public class guardianProfileSceneController implements Initializable{
     }
 
     public void changePicButtonHandler(){
+        FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(stage);
+        System.out.println(file.getName());
+
+        guardian.setProfilePic(new Image(file.getPath()));
+        // guardianProfilePic.setImage(guardian.getProfilePic());
 
     }
 

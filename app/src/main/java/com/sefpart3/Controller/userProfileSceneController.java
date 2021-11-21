@@ -40,7 +40,7 @@ import twitter4j.auth.RequestToken;
 public class userProfileSceneController implements Initializable{
 
     @FXML
-    private Button backButton,twitterButton, editProfileButton;
+    private Button backButton,twitterButton, editProfileButton, guardianProfileButton;
 
     @FXML
     private TextField userName, userEmail, userAddress, userContactNumber;
@@ -221,6 +221,17 @@ public class userProfileSceneController implements Initializable{
             twitterButton.setText("Connected:" + user.getTwitter().getScreenName());
         }
       
+    }
+
+    public void guardianProfileButtonHandler() throws IOException{
+        
+        FXMLLoader loader = new FXMLLoader();
+        loader = new FXMLLoader(getClass().getResource("../View/guardianProfileScene.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = (Stage) guardianProfileButton.getScene().getWindow();
+        stage.setScene(new Scene(root));
+
     }
 
 }
